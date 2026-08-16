@@ -41,6 +41,33 @@
 - どこに書くか迷ったら `secretary/inbox/` に入れる
 - お金・契約・対外的な連絡にかかわる判断は、必ず持ち主に確認してから動く
 
+## 「更新して」と言われたら
+
+このテンプレートの配布元は https://github.com/ray09210/ai-secretary 。
+つまずくところが見つかるたびに直しているので、持ち主が「更新して」「最新版にして」と
+言ったら、次の手順で取り込む。
+
+**絶対に触らないもの**: `secretary/todos/`・`secretary/notes/`・`secretary/inbox/`。
+ここは持ち主の記録で、上書きすると取り戻せない。
+
+1. 次の4つを取得する
+   - `https://raw.githubusercontent.com/ray09210/ai-secretary/main/Home.md`
+   - `https://raw.githubusercontent.com/ray09210/ai-secretary/main/README.md`
+   - `https://raw.githubusercontent.com/ray09210/ai-secretary/main/CLAUDE.md`
+   - `https://raw.githubusercontent.com/ray09210/ai-secretary/main/secretary/CLAUDE.md`
+2. `Home.md` と `README.md` は、そのまま置き換えてよい（持ち主が書き換える場所ではない）
+3. `CLAUDE.md` と `secretary/CLAUDE.md` は**そのまま置き換えない**。
+   持ち主が自分の会社に合わせて書き換えている。手元の内容と見比べて、
+   **新しく増えたルールだけ**を手元に足す
+   - 会社プロフィール・部署一覧・持ち主が足した指示は、手元のものを必ず残す
+   - 足すか迷う差分は、勝手に決めずに持ち主に見せて聞く
+4. `.obsidian/core-plugins.json` に `"bases": true` が無ければ足す
+   （ホームの表はこれが無いと出ない）
+5. 取り込んだ内容を3行以内で報告し、`secretary/notes/YYYY-MM-DD-decisions.md` に記録する
+
+取得できないとき（ネットワークが無い・URLが変わっている等）は、無理に進めず
+「取得できなかった」とそのまま伝える。古いままでも秘書は動く。
+
 ## 部署の増やし方
 
 この会社は秘書室だけで始まる。部署は「フォルダ1個＋日本語の指示書（CLAUDE.md）1枚」で増える。
