@@ -1,0 +1,48 @@
+name: 配布用ZIPを作り直す
+
+# main を更新するたびに ai-secretary.zip を作り直し、latest リリースに差し替える。
+# 配布URL（README から張っているもの）は常にこれを指す:
+#   https://github.com/ray09210/ai-secretary/releases/latest/download/ai-secretary.zip
+#
+# ZIP の中身は「包まない」こと。ZIP直下に CLAUDE.md と secretary/ を置く。
+# Windows の「すべて展開」は ZIP名と同じフォルダを作って中に展開するため、
+# 中身を ai-secretary/ で包むと ai-secretary\ai-secretary\ の二重になる。
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: ZIP を作る（中身はZIP直下に置く）
+        run: |
+          mkdir -p pkg
+          rsync -a \
+            --exclude='.git/' \
+            --exclude='.github/' \
+            --exclude='.gitignore' \
+            --exclude='pkg/' \
+            ./ pkg/
+          cd pkg && zip -r ../ai-secretary.zip . && cd ..
+          echo "--- 中身の確認 ---"
+          unzip -l ai-secretary.zip
+
+      - name: latest リリースに差し替える
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          if gh release view latest >/dev/null 2>&1; then
+            gh release upload latest ai-secretary.zip --clobber
+          else
+            gh release create latest ai-secretary.zip \
+              --title "AI社員1号「秘書」スターターキット" \
+              --notes "下の ai-secretary.zip をダウンロードしてください。展開すると ai-secretary フォルダができます。使い方は README を見てください。"
+          fi
