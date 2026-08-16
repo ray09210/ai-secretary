@@ -1,4 +1,5 @@
 {
+  "bases": true,
   "file-explorer": true,
   "global-search": true,
   "switcher": true,

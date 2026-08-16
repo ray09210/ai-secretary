@@ -13,13 +13,13 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "secretary/notes/2026-08-17-decisions.md",
+                "file": "Home.md",
                 "mode": "preview",
                 "backlinks": false,
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "2026-08-17-decisions"
+              "title": "ホーム"
             }
           }
         ]
@@ -104,6 +104,7 @@
   },
   "active": "starter-main-leaf",
   "lastOpenFiles": [
+    "Home.md",
     "secretary/notes/2026-08-17-decisions.md",
     "secretary/todos/2026-08-17.md",
     "secretary/CLAUDE.md",
