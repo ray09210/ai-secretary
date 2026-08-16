@@ -16,18 +16,13 @@ AIに秘書役の社員になってもらうための、いちばん小さなテ
 
 ## 動かすまでの3ステップ
 
-### 1. このテンプレートを手に入れる
+### 1. ダウンロードして、置き場所を決める
 
-このページ上部の緑の **「Code」ボタン → 「Download ZIP」** でダウンロードして、解凍します。
-（GitHubのアカウントは不要です）
+**→ [ai-secretary.zip をダウンロード](https://github.com/ray09210/ai-secretary/releases/latest/download/ai-secretary.zip)**（GitHubのアカウントは要りません）
 
-GitHubアカウントがある方は、**「Use this template」→「Create a new repository」**で自分のリポジトリとして作れます。その場合は必ず **Private** を選んでください。
+落ちてきたZIPを右クリックして **「すべて展開」**。`ai-secretary` というフォルダができます。
 
-#### 置き場所を決める
-
-解凍すると `ai-secretary-main` というフォルダができます。開いて、**`CLAUDE.md` と `secretary` が並んで見える**ことを確認してください。同じ名前のフォルダが二重になっていたら、内側が本体です（Windows の「すべて展開」で起きます）。
-
-確認できたら、そのフォルダを次の場所へ移動し、名前は末尾の **`-main` を消して** `ai-secretary` にしてください。
+そのフォルダを、次の場所へ移動してください。
 
 ```
 Windows   C:\Users\<あなたのユーザー名>\ai-secretary
@@ -40,6 +35,10 @@ Mac       ~/ai-secretary
 
 - **ドキュメント・デスクトップの中は避けてください。** OneDrive（Mac は iCloud）のバックアップが有効だと、これらは同期フォルダになります。実体が手元になくて読み取りに失敗したり、2台で開いたときに `CLAUDE-DESKTOP-1234.md` のような競合コピーができて、秘書がどちらを読むか分からなくなります。ユーザーフォルダの直下なら同期の対象外です
 - **ダウンロードフォルダのままにしないでください。** あとで整理するときに消してしまいます
+
+フォルダの中に `CLAUDE.md` と `secretary` が並んで見えていれば、正しく置けています。
+
+GitHubアカウントをお持ちの方は、このページの **「Use this template」→「Create a new repository」** で自分のリポジトリとして作ることもできます。その場合は必ず **Private** を選んでください。
 
 ### 2. Claude Code でフォルダを開く
 
