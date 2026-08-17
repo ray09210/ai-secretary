@@ -81,11 +81,36 @@ views:
     limit: 5
 ```
 
+## 部署の記録
+
+秘書室以外の部署ができると、ここに並びます。まだ無いうちは空のままで大丈夫です。
+
+```base
+filters:
+  and:
+    - 'file.ext == "md"'
+    - '!file.inFolder("secretary")'
+    - '!file.name.contains("CLAUDE")'
+    - 'file.name != "Home"'
+    - 'file.name != "README"'
+views:
+  - type: table
+    name: 部署
+    order:
+      - file.name
+      - file.folder
+      - file.mtime
+    sort:
+      - property: file.mtime
+        direction: DESC
+    limit: 15
+```
+
 ---
 
 ## 指示書
 
-- [[CLAUDE|会社のルール]] — 全員に共通の決めごと
+- [[CLAUDE|会社のルール]] — 全員に共通の決めごと。**部署一覧もここ**
 - [[secretary/CLAUDE|秘書の指示書]] — 役割・口調・仕事の手順
 
 書き換えれば、秘書の動きが変わります。
